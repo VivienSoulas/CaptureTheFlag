@@ -1,28 +1,12 @@
-#!/bin/bash
+# #!/bin/bash
 
-echo "step 1"
-echo "Current flag: KTY4ODhyMjFuLWZhMDFnQHplMHNmYTRlRy1nazNnLXRhMWZlcmlyRShTR1BicHZj"
-echo "Hint: Base64 encoded the string."
-echo "first command is: base64 -d"
-echo ""
-echo "step 2"
-echo "Current flag: )6888r21n-fa01g@ze0sfa4eG-gk3g-ta1ferirE(SGPbpvc"
-echo "Hint: Reversed the text."
-echo "second command is: tr '-' '_'"
-echo ""
-echo "step 3"
-echo "Current flag: cvpbPGS(Eriref1at-g3kg-Ge4afs0ez@g10af-n12r8886)"
-echo "Hint: Replaced underscores with dashes."
-echo "third command is: tr '-' '_'"
-echo ""
-echo "step 4"
-echo "Current flag: cvpbPGS(Eriref1at_g3kg_Ge4afs0ez@g10af_n12r8886)"
-echo "Hint: Replaced curly braces with parentheses."
-echo "forth command to reverse it: tr '()' '{}'"
-echo ""
-echo "step 5"
-echo "Current flag: cvpbPGS{Eriref1at_g3kg_Ge4afs0ez@g10af_n12r8886}"
-echo "Hint: Applied ROT13 to letters."
-echo "fith command: tr 'a-zA-Z' 'n-za-mN-ZA-M'"
-echo ""
-echo "Final Flag: picoCTF{Revers1ng_t3xt_Tr4nsf0rm@t10ns_a12e8886}"
+#$1 should be given as an argument to the script
+# it corresponds to the netcat port number
+
+(
+  echo "base64 -d"
+  echo "rev"
+  echo "tr '-' '_'"
+  echo "tr '()' '{}'"
+  echo "tr 'a-zA-Z' 'n-za-mN-ZA-M'"
+) | nc foggy-cliff.picoctf.net $1
