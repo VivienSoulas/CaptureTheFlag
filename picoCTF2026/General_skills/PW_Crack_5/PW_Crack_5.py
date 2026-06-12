@@ -17,7 +17,7 @@ with open("dictionary.txt", "r") as file:
 		pw_hash = hashlib.md5(pw.encode()).digest()
 		
 		if pw_hash == correct_hash:
-			print(f"[+] Found correct password: {pw}")
+			print(f"Password found: {pw}")
 
 			result = subprocess.run(
 				checker_program,
@@ -25,5 +25,6 @@ with open("dictionary.txt", "r") as file:
 				text=True,
 				capture_output=True,
 			)
-			print(f"{result.stdout}")
+			output_lines = result.stdout.splitlines()
+			print(f"{output_lines[1]}")
 			break
